@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TIC-TAC-TOE</title>
+        <link rel="stylesheet" href="css/normalize.css" type="text/css">
+        <link rel="stylesheet" href="css/styles.css" type="text/css">
+        <meta name="TIC-TAC-TOE" content="An online tic-tac-toe game">
+        <!--[if IE]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js></script>
+        <![endif]-->
+    </head>
+    <body>
+        <heading>
+            <h1>Tic-Tac-Toe</h1>
+            <hr>
+        </heading>
+
+        <!-- Display the choice of "X" and "O" for player -->
+        <section>
+            <button id="x" class="side"></button>
+            <button id="o" class="side"></button>
+            <p class="side">Choose your side!</p>
+        </section>
+
+        <!-- Game Board -->
+        <div id="container">
+           <!-- Reset Button -->
+            <button id="reset">Reset</button>
+            <input type="button" id="card1" class="cards">
+            <input type="button" id="card2" class="cards">
+            <input type="button" id="card3" class="cards">
+            <input type="button" id="card4" class="cards">
+            <input type="button" id="card5" class="cards">
+            <input type="button" id="card6" class="cards">
+            <input type="button" id="card7" class="cards">
+            <input type="button" id="card8" class="cards">
+            <input type="button" id="card9" class="cards">
+
+<!--
+            <div id="card1" class="cards"></div>
+            <div id="card2" class="cards"></div>
+            <div id="card3" class="cards"></div>
+            <div id="card4" class="cards"></div>
+            <div id="card5" class="cards"></div>
+            <div id="card6" class="cards"></div>
+            <div id="card7" class="cards"></div>
+            <div id="card8" class="cards"></div>
+            <div id="card9" class="cards"></div>
+-->
+        </div> <!--#container-->
+
+        <!-- Load the CDN of jQueryfirst -->
+        <script
+          src="https://code.jquery.com/jquery-2.1.4.min.js"
+          integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw="
+          crossorigin="anonymous"></script>
+
+        <!-- If CDN fails to load, serve up the local jQuery -->
+        <script type="text/javascript">
+            window.jQuery || document.write('<script src="scripts/jquery-3.2.1.js"></script');
+        </script>
+
+        <!-- Custom Scripts -->
+        <script type="text/javascript" src="js/scripts.js"></script>
+    </body>
+</html>
