@@ -57,67 +57,73 @@ $(function() {
         chosenSquare = $(this).attr('id');
 
         while(playerTurn == true) {
-//            if(usedSquares.includes(chosenSquare)) {
-//                // DO NOTHING BUT ALERT THE USER TO PICK ANOTHER SQUARE
-//                alert("I'm sorry, please choose another square");
-//            } else {
-//                usedSquares.push(chosenSquare);
-//                if(allCards.includes(chosenSquare)){
-//                    removeNum = allCards.indexOf(chosenSquare);
-//                    allCards.splice(removeNum,1);
-//                    alert('hello there')
-////                    break;
-//                };
-//                playerTurn = false;
-//                computerTurn = true;
-//                break;
-//            };
 
-            if($(this).val() == '') {
-                $(this).val(player).css('background','yellow');
-                usedSquares.push(chosenSquare);
-                if(allCards.includes(chosenSquare)){
-                    removeNum = allCards.indexOf(chosenSquare);
-                    allCards.splice(removeNum,1);
-                    alert('hello there')
-                };
-                playerTurn = false;
-                computerTurn = true;
+            if(usedSquares.length >= 9) {
+                alert('game over!');
                 break;
-
             } else {
-                // DO NOTHING BUT ALERT THE USER TO PICK ANOTHER SQUARE
-                alert("I'm sorry, please choose another square");
-                break;
+                if($(this).val() == '') {
+                    $(this).val(player).css('background','yellow');
+                    usedSquares.push(chosenSquare);
+                    if(allCards.includes(chosenSquare)){
+                        removeNum = allCards.indexOf(chosenSquare);
+                        allCards.splice(removeNum,1);
+//                        alert('hello there')
+                    };
+                    playerTurn = false;
+                    computerTurn = true;
+                    break;
+
+                } else {
+                    // DO NOTHING BUT ALERT THE USER TO PICK ANOTHER SQUARE
+                    alert("I'm sorry, please choose another square");
+                    break;
+                };
             };
         };
 
 
-        alert(allCards);
-        alert(usedSquares);
-        alert(usedSquares.length);
+//        alert(allCards);
+//        alert(usedSquares);
+//        alert(usedSquares.length);
+
 //        if(usedSquares.length >= 9) {
 //            alert('game over!')
 //        };
 
-        while(computerTurn == true) {
+        setTimeout(function() {
             alert('computers turn');
-            randomNum = Math.floor(Math.random() * allCards.length);
-            computerChoice = allCards[randomNum];
-            idOf = '#' + computerChoice;
-            if(usedSquares.includes(idOf)) {
-                //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
-                continue;
-            } else {
-                alert('computer choosing now')
-                $(idOf).val(computer).css('background', ' green');
-                usedSquares.push(computerChoice);
-                allCards.splice(randomNum,1);
-                computerTurn = false;
-                playerTurn = true;
-                break;
+        },400);
+
+        setTimeout(function() {
+
+            while(computerTurn == true) {
+
+                if(usedSquares.length >= 9) {
+                    alert('game over!');
+                    break;
+                } else {
+//                    setTimeout(function() {
+//                        alert('computers turn');
+//                    },100);
+                    randomNum = Math.floor(Math.random() * allCards.length);
+                    computerChoice = allCards[randomNum];
+                    idOf = '#' + computerChoice;
+                    if(usedSquares.includes(idOf)) {
+                        //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
+                        continue;
+                    } else {
+//                        alert('computer choosing now')
+                        $(idOf).val(computer).css('background', ' green');
+                        usedSquares.push(computerChoice);
+                        allCards.splice(randomNum,1);
+                        computerTurn = false;
+                        playerTurn = true;
+                        break;
+                    };
+                };
             };
-        };
+        }, 1000);
     });
 
 //        alert(usedSquares.length);
