@@ -4,11 +4,11 @@
 $(function() {
 
     // DECLARING VARIABLES TO BE USED FOR CHOICE OF PLAYER & COMPUTER SIDE
-    var player, computer, chosenSquare, computerChoice, idOf;
+    var player, computer, chosenSquare, computerChoice, idOf, randomNum, removeNum;
     var usedSquares = [];
 //    var allCards = $('body').find('input').attr('id').toArray();
-//    var allCards = ['card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9'];
-    var allCards = $('input');
+    var allCards = ['card1', 'card2', 'card3', 'card4', 'card5', 'card6', 'card7', 'card8', 'card9'];
+//    var allCards = $('input');
     var playerTurn = true;
     var computerTurn = false;
 
@@ -80,16 +80,28 @@ $(function() {
 //            break;
         } else {
             usedSquares.push(chosenSquare);
-            alert(usedSquares);
-            alert(allCards.length);
-            playerTurn = false;
+//            playerTurn = false;
 //            $(this).prop('disabled', true);
-            allCards.splice(this,1);
+//            allCards.splice(chosenSquare,1);
+            if(allCards.includes(chosenSquare)) {
+            alert('your on the right track!')
+            removeNum = allCards.indexOf(chosenSquare);
+            alert(removeNum);
+            allCards.splice(removeNum,1);
+        };
+            playerTurn = false;
 //            computerTurn = true;
 //            return playerTurn;
 //            break;
         };
 //        };
+
+
+
+        alert(chosenSquare);
+        alert(usedSquares);
+        alert(allCards.length);
+        alert(allCards);
         computerTurn = true;
 
 //        playerTurn = false;
@@ -100,26 +112,38 @@ $(function() {
 //        document.getElementById( iden)
 
         while(computerTurn == true) {
-            computerChoice = allCards[Math.floor(Math.random() * allCards.length)];
+            alert('computers turn');
+            randomNum = Math.floor(Math.random() * allCards.length)
+//            computerChoice = allCards[Math.floor(Math.random() * allCards.length)];
+            computerChoice = allCards[randomNum];
             idOf = '#' + computerChoice;
-            if(usedSquares.includes(idOf)) {
-//                alert('computer choosing again');
-                computerChoice = allCards[ Math.floor(Math.random() * allCards.length)];
+            if(usedSquares.includes(computerChoice)) {
+                alert('computer choosing again');
+//                computerChoice = allCards[ Math.floor(Math.random() * allCards.length)];
+                continue;
 //                $(idOf).val(computer).css('background', ' green');
-                usedSquares.push(idOf);
-                allCards.splice(computerChoice-1,1);
+//                usedSquares.push(computerChoice);
+//                allCards.splice(computerChoice,1);
 //                computerTurn = false;
-                $(idOf).prop('disabled', true);
+//                $(idOf).prop('disabled', true);
             } else {
+                alert('computer choosing now')
 //                document.getElementById(computerChoice).value(computer);
                 $(idOf).val(computer).css('background', ' green');
+//                $(computerChoice).val(computer).css('background', ' green');
                 usedSquares.push(computerChoice);
+                allCards.splice(randomNum,1);
                 computerTurn = false
-                $(idOf).prop('disabled', true);
+
+                alert(computerChoice);
+                alert(usedSquares);
+                alert(allCards.length);
+                alert(allCards);
+//                $(idOf).prop('disabled', true);
             };
         };
 
-        $(idOf).val(computer).css('background', ' green');
+//        $(idOf).val(computer).css('background', ' green');
 //        usedSquares.push(computerChoice);
 //        computerTurn = false;
 
@@ -131,7 +155,7 @@ $(function() {
 
 
 
-        return chosenSquare, usedSquares, computerChoice;
+//        return chosenSquare, usedSquares, computerChoice;
 
     });
 //    while(playerTurn !== true) {
@@ -154,7 +178,7 @@ $(function() {
 
     if(usedSquares.length == 9) {
         alert('game over!')
-        $(':input').attr(disabled);
+//        $(':input').attr(disabled);
     };
 
 //    if($(this).jquery.inArray(usedSquares)) {
