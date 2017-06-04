@@ -80,184 +80,109 @@ $(function() {
         };
 
 
-        //  CODE BELOW THIS LINE FUNCTIONS PROPERLY
-//=========================================================
-//
-        setTimeout(function() {
-            alert('computers turn');
-        },400);
+        /////////////////////////////////////
 
-        setTimeout(function() {
-
-            while(computerTurn == true) {
-                if(usedSquares.length >= 9) {
-                    alert('game over!');
-                    $('.cards').prop('disabled', true);
-                    break;
-                } else {
-                    randomNum = Math.floor(Math.random() * allCards.length);
-                    computerChoice = allCards[randomNum];
-                    idOf = '#' + computerChoice;
-                    if(usedSquares.includes(idOf)) {
-                        //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
-                        continue;
-                    } else {
-                        $(idOf).val(computer).css('background', ' green');
-                        usedSquares.push(computerChoice);
-                        allCards.splice(randomNum,1);
-                        computerTurn = false;
-                        playerTurn = true;
-                        break;
-                    };
-                };
-            };
-        }, 1000);
-//
-        //  CODE ABOVE THIS LINE FUNCTIONS PROPERLY
-//=========================================================
 
         if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
             if($('#card1').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card1').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card1').val() === $('#card5').val() && $('#card1').val() === $('#card9').val()) {
             if($('#card1').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card1').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card1').val() === $('#card4').val() && $('#card1').val() === $('#card7').val()) {
             if($('#card1').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card1').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card2').val() === $('#card5').val() && $('#card2').val() === $('#card8').val()) {
             if($('#card2').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card2').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card3').val() === $('#card6').val() && $('#card3').val() === $('#card9').val()){
             if($('#card3').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card3').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card3').val() === $('#card5').val() && $('#card3').val() === $('#card7').val()) {
             if($('#card3').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card3').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card4').val() === $('#card5').val() && $('#card4').val() === $('#card6').val()) {
             if($('#card4').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card4').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
         } else if($('#card7').val() === $('#card8').val() && $('#card7').val() === $('#card9').val()) {
             if($('#card7').val() == player) {
                 alert('Congratulations player! You have won!');
-                computerTurn = false;
-            } else if($('#card7').val() == computer) {
-                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
                 computerTurn = false;
             };
-        } else {
-
         };
 
 
 
-//=========================================================
+        ////////////////////////////////////
+
+
+// ===========================================
+//        NOT WORKING PROPERLY
+// ===========================================
 //
+//                while(computerTurn == true) {
+//            setTimeout(function() {
+//                alert('computers turn');
+//                setTimeout(function() {
+//
+//
+//                    if(usedSquares.length >= 9) {
+//                        alert('game over!');
+//                        $('.cards').prop('disabled', true);
+//                        break;
+//                    } else {
+//                        randomNum = Math.floor(Math.random() * allCards.length);
+//                        computerChoice = allCards[randomNum];
+//                        idOf = '#' + computerChoice;
+//                        if(usedSquares.includes(idOf)) {
+//                            //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
+//                            continue;
+//                        } else {
+//                            $(idOf).val(computer).css('background', ' green');
+//                            usedSquares.push(computerChoice);
+//                            allCards.splice(randomNum,1);
+//                            computerTurn = false;
+//                            playerTurn = true;
+//                            break;
+//                        };
+//                    };
+//
+//                }, 1000);
+//            },400);
+//        };
+//
+//=========================================================
+//  ABOVE NOT WORKING, BELOW HALFWAY WORKS
+//=========================================================
+
+
+
 //        setTimeout(function() {
 //            alert('computers turn');
-//        },400);
+//            setTimeout(function() {
 //
-//        setTimeout(function() {
-//            if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
-//                if($('#card1').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card1').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card1').val() === $('#card5').val() && $('#card1').val() === $('#card9').val()) {
-//                if($('#card1').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card1').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card1').val() === $('#card4').val() && $('#card1').val() === $('#card7').val()) {
-//                if($('#card1').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card1').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card2').val() === $('#card5').val() && $('#card2').val() === $('#card8').val()) {
-//                if($('#card2').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card2').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card3').val() === $('#card6').val() && $('#card3').val() === $('#card9').val()) {
-//                if($('#card3').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card3').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card3').val() === $('#card5').val() && $('#card3').val() === $('#card7').val()) {
-//                if($('#card3').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card3').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card4').val() === $('#card5').val() && $('#card4').val() === $('#card6').val()) {
-//                if($('#card4').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card4').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else if($('#card7').val() === $('#card8').val() && $('#card7').val() === $('#card9').val()) {
-//                if($('#card7').val() == player) {
-//                    alert('Congratulations player! You have won!');
-//                    break;
-//                } else if($('#card7').val() == computer) {
-//                    alert('Haha! I am triumphent once again!');
-//                    break;
-//                };
-//            } else {
 //                while(computerTurn == true) {
 //                    if(usedSquares.length >= 9) {
 //                        alert('game over!');
@@ -280,171 +205,182 @@ $(function() {
 //                        };
 //                    };
 //                };
-//            };
-//        }, 1000);
-//    }); // END OF '.cards.click'
+//            }, 1000);
+//        },400);
 //
-
-
-//        setTimeout(function() {
-//            alert('computers turn');
-//        },400).after(function() {
 //
-//            while(computerTurn == true) {
-//                alert('computer choosing')
-//                if(usedSquares.length >= 9) {
-//                    alert('game over!');
-//                    $('.cards').prop('disabled', true);
-//                    break;
-//                } else {
-//                    randomNum = Math.floor(Math.random() * allCards.length);
-//                    computerChoice = allCards[randomNum];
-//                    idOf = '#' + computerChoice;
-//                    if(usedSquares.includes(idOf)) {
-//                        //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
-//                        continue;
-//                    } else {
-//                        $(idOf).val(computer).css('background', ' green');
-//                        usedSquares.push(computerChoice);
-//                        allCards.splice(randomNum,1);
-//                        computerTurn = false;
-//                        playerTurn = true;
-//                        break;
-//                    };
-//                };
+//        if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
+//            if($('#card1').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card1').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
 //            };
-//        }); // END OF '.cards.click';
+//        } else if($('#card1').val() === $('#card5').val() && $('#card1').val() === $('#card9').val()) {
+//            if($('#card1').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card1').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card1').val() === $('#card4').val() && $('#card1').val() === $('#card7').val()) {
+//            if($('#card1').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card1').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card2').val() === $('#card5').val() && $('#card2').val() === $('#card8').val()) {
+//            if($('#card2').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card2').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card3').val() === $('#card6').val() && $('#card3').val() === $('#card9').val()){
+//            if($('#card3').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card3').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card3').val() === $('#card5').val() && $('#card3').val() === $('#card7').val()) {
+//            if($('#card3').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card3').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card4').val() === $('#card5').val() && $('#card4').val() === $('#card6').val()) {
+//            if($('#card4').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card4').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        } else if($('#card7').val() === $('#card8').val() && $('#card7').val() === $('#card9').val()) {
+//            if($('#card7').val() == player) {
+//                alert('Congratulations player! You have won!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            } else if($('#card7').val() == computer) {
+//                alert('Haha! I am triumphent once again!');
+//                playerTurn = false;
+//                computerTurn = false;
+//            };
+//        };
 
-//        setTimeout(function() {
-//            while(computerTurn == true) {
-//                if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
-//                    if($('#card1').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card1').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card1').val() === $('#card5').val() && $('#card1').val() === $('#card9').val()) {
-//                    if($('#card1').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card1').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card1').val() === $('#card4').val() && $('#card1').val() === $('#card7').val()) {
-//                    if($('#card1').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card1').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card2').val() === $('#card5').val() && $('#card2').val() === $('#card8').val()) {
-//                    if($('#card2').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card2').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card3').val() === $('#card6').val() && $('#card3').val() === $('#card9').val()) {
-//                    if($('#card3').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card3').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card3').val() === $('#card5').val() && $('#card3').val() === $('#card7').val()) {
-//                    if($('#card3').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card3').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card4').val() === $('#card5').val() && $('#card4').val() === $('#card6').val()) {
-//                    if($('#card4').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card4').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else if($('#card7').val() === $('#card8').val() && $('#card7').val() === $('#card9').val()) {
-//                    if($('#card7').val() == player) {
-//                        alert('Congratulations player! You have won!');
-//                        break;
-//                    } else if($('#card7').val() == computer) {
-//                        alert('Haha! I am triumphent once again!');
-//                        break;
-//                    };
-//                } else {
-//                    if(usedSquares.length >= 9) {
-//                        alert('game over!');
-//                        $('.cards').prop('disabled', true);
-//                        break;
-//                    } else {
-//                        randomNum = Math.floor(Math.random() * allCards.length);
-//                        computerChoice = allCards[randomNum];
-//                        idOf = '#' + computerChoice;
-//                        if(usedSquares.includes(idOf)) {
-//                            //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
-//                            continue;
-//                        } else {
-//                            $(idOf).val(computer).css('background', ' green');
-//                            usedSquares.push(computerChoice);
-//                            allCards.splice(randomNum,1);
-//                            computerTurn = false;
-//                            playerTurn = true;
-//                            break;
-//                        };
-//                    };
-//                };
-//            };
-//        }, 1000);
+//=========================================================
+//  ABOVE HALFWAY WORKS
+//=========================================================
+
+
+        setTimeout(function() {
+            alert('computers turn');
+            setTimeout(function() {
+
+                while(computerTurn == true) {
+                    if(usedSquares.length >= 9) {
+                        alert('game over!');
+                        $('.cards').prop('disabled', true);
+                        break;
+                    } else {
+                        randomNum = Math.floor(Math.random() * allCards.length);
+                        computerChoice = allCards[randomNum];
+                        idOf = '#' + computerChoice;
+                        if(usedSquares.includes(idOf)) {
+                            //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
+                            continue;
+                        } else {
+                            $(idOf).val(computer).css('background', ' green');
+                            usedSquares.push(computerChoice);
+                            allCards.splice(randomNum,1);
+                            computerTurn = false;
+                            playerTurn = true;
+                            break;
+                        };
+                    };
+                };
+            }, 1000);
+        },400);
+
+
+        if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
+            if($('#card1').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card1').val() === $('#card5').val() && $('#card1').val() === $('#card9').val()) {
+            if($('#card1').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card1').val() === $('#card4').val() && $('#card1').val() === $('#card7').val()) {
+            if($('#card1').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card2').val() === $('#card5').val() && $('#card2').val() === $('#card8').val()) {
+            if($('#card2').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card3').val() === $('#card6').val() && $('#card3').val() === $('#card9').val()){
+            if($('#card3').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card3').val() === $('#card5').val() && $('#card3').val() === $('#card7').val()) {
+            if($('#card3').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card4').val() === $('#card5').val() && $('#card4').val() === $('#card6').val()) {
+            if($('#card4').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        } else if($('#card7').val() === $('#card8').val() && $('#card7').val() === $('#card9').val()) {
+            if($('#card7').val() == computer) {
+                alert('Haha! I am triumphent once again!');
+                playerTurn = false;
+                computerTurn = false;
+            };
+        };
+
 
 
 
 
     }); // END OF '.cards.click'
-
-
-
-
-
-//    }).after(
-//
-//        while(computerTurn == true) {
-//            alert('computer choosing')
-//            if(usedSquares.length >= 9) {
-//                alert('game over!');
-//                $('.cards').prop('disabled', true);
-//                break;
-//            } else {
-//                randomNum = Math.floor(Math.random() * allCards.length);
-//                computerChoice = allCards[randomNum];
-//                idOf = '#' + computerChoice;
-//                if(usedSquares.includes(idOf)) {
-//                    //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
-//                    continue;
-//                } else {
-//                    $(idOf).val(computer).css('background', ' green');
-//                    usedSquares.push(computerChoice);
-//                    allCards.splice(randomNum,1);
-//                    computerTurn = false;
-//                    playerTurn = true;
-//                    break;
-//                };
-//            };
-//        };
-//    ); // END OF '.cards.click'
-
-
-
-
 
     // WHEN THE RESET BUTTON IS PRESSED, RESET THE GAME
     $('#reset').click(function(){
@@ -460,7 +396,6 @@ $(function() {
         $(this).removeClass('active');
     }); // END OF '#reset.click'
 });
-
 
 
 //if($('#card1').val() === $('#card2').val() && $('#card1').val() === $('#card3').val()){
