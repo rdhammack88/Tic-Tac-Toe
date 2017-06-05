@@ -2,6 +2,7 @@
 /* Created by Dustin Hammack - May 2017 */
 
 //Working completely except computer is dumb
+// v.04 Bug fixes and code cleanup
 
 $(function() {
 
@@ -15,8 +16,8 @@ $(function() {
     $('#x').click(function() {
 
         // INITIALIZE VARIABLES FOR CHOICE OF PLAYER & COMPUTER SIDE
-        player = 'x';
-        computer = 'o';
+        player = 'X';
+        computer = 'O';
 
         // SPIN THE "X" AND "O" CARDS
         $('.side').addClass('rotate').delay(1000).slideUp(1500);
@@ -27,8 +28,8 @@ $(function() {
         $('#reset').css({
             display: 'block',
             position: 'fixed',
-            top: '80px',
-            left: '60px'
+            top: '50px',
+            left: '40px'
         }).addClass('active');
     }); // END OF '#x.click'
 
@@ -36,8 +37,8 @@ $(function() {
     $('#o').click(function() {
 
         // INITIALIZE VARIABLES FOR CHOICE OF PLAYER & COMPUTER SIDE
-        player = 'o';
-        computer = 'x';
+        player = 'O';
+        computer = 'X';
 
         // SPIN THE "X" AND "O" CARDS
         $('.side').addClass('rotate').delay(1000).slideUp(1500);
@@ -48,8 +49,8 @@ $(function() {
         $('#reset').css({
             display: 'block',
             position: 'fixed',
-            top: '80px',
-            left: '60px'
+            top: '50px',
+            left: '40px'
         }).addClass('active');
     }); // END OF '#o.click'
 
@@ -66,7 +67,11 @@ $(function() {
                     break;
                 } else {
                     if($(this).val() == '') {
-                        $(this).val(player).css('background','yellow');
+                        $(this).val(player).css({'background': ' yellow', 'opacity': '.6'});
+//                        $(this).addClass('cardRotate')
+//                        setTimeout(function() {
+//                            $(this).val(player).css({'background': ' yellow', 'opacity': '.6'});
+//                        }, 1000);
                         usedSquares.push(chosenSquare);
                         if(allCards.includes(chosenSquare)){
                             removeNum = allCards.indexOf(chosenSquare);
@@ -94,12 +99,17 @@ $(function() {
                     } else {
                         randomNum = Math.floor(Math.random() * allCards.length);
                         computerChoice = allCards[randomNum];
+//                        computersGo();
                         idOf = '#' + computerChoice;
                         if(usedSquares.includes(idOf)) {
                             //DO NOTHING BUT CONTINUE THE LOOP FOR THE COMPUTER TO CHOOSE A SQUARE
                             continue;
                         } else {
-                            $(idOf).val(computer).css('background', ' green');
+                            $(idOf).val(computer).css({'background': ' green', 'opacity': '.6'});
+//                            $(idOf).addClass('cardRotate')
+//                            setTimeout(function() {
+//                                $(idOf).val(computer).css({'background': ' green', 'opacity': '.6'});
+//                            }, 1000);
                             usedSquares.push(computerChoice);
                             allCards.splice(randomNum,1);
                             computerTurn = false;
@@ -214,6 +224,49 @@ $(function() {
 
         return playerTurn, computerTurn;
     }
+
+
+    =================================================
+
+
+//    function computersGo() {
+//        if($('#card1').val() === $('#card2').val() && $('#card3').val() === ''){
+//            randomNum = 2
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card1').val() === $('#card5').val() && $('#card9').val() === '') {
+//            randomNum = 8
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card1').val() === $('#card4').val() && $('#card7').val() === '') {
+//            randomNum = 6
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card2').val() === $('#card5').val() && $('#card8').val() === '') {
+//            randomNum = 7
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card3').val() === $('#card6').val() && $('#card9').val() === ''){
+//            randomNum = 8
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card3').val() === $('#card5').val() && $('#card7').val() === '') {
+//            randomNum = 6
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card4').val() === $('#card5').val() && $('#card6').val() === '') {
+//            randomNum = 5
+//            computerChoice = allCards[randomNum];
+//        } else if($('#card7').val() === $('#card8').val() && $('#card9').val() === '') {
+//            randomNum = 8
+//            computerChoice = allCards[randomNum];
+//        } else {
+//            randomNum = Math.floor(Math.random() * allCards.length);
+//            computerChoice = allCards[randomNum];
+//        }
+//
+//        return computerChoice, randomNum;
+//    }
+
+
+
+
+    =================================================
+
 
     // WHEN THE RESET BUTTON IS PRESSED, RESET THE GAME
     $('#reset').click(function(){
