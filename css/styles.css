@@ -1,0 +1,148 @@
+/* TIC-TAC-TOE STYLES */
+/* Created by Dustin Hammack - May 2017 */
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+hr {
+    width: 20%;
+    margin:  0 auto 30px;
+    box-shadow: 1px -4px 40px 3px grey;
+}
+
+#reset {
+    display: none;
+    z-index: 2;
+}
+
+.active:hover {
+    position: absolute;
+    top: 3px;
+}
+
+.side {
+    margin-top: 50px;
+}
+
+.rotate {
+    transition: transform 5s;
+    transform: rotateY(1800deg);
+}
+
+.cardRotate {
+    transition: transform 4s;
+    transform: rotateY(360deg);
+/*    backface-visibility: hidden;*/
+}
+
+#x, #o {
+    background: grey;
+    padding: 0;
+    margin: auto;
+    box-shadow: 10px 15px 10px 0 grey,0 17px 50px 0 grey;
+    position: relative;
+    width: 300px;
+    height: 350px;
+}
+
+#x {
+    background: url('../images/x_card.png') top left no-repeat;
+}
+
+#o {
+    background: url('../images/o_card.png') top left no-repeat;
+}
+
+.side:hover {
+    top: -5px;
+    left: 5px;
+}
+
+.side:active {
+    top: 3px;
+}
+
+.cards {
+    background: white;
+    border: none;
+}
+
+#container {
+    width: 85%;
+    max-width: 800px;
+    max-height: 750px;
+    margin: auto;
+    padding: 10px;
+    background: white;
+    display: none;
+    z-index: 1;
+}
+
+#card1, #card2, #card4, #card5 {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    margin-top: -1px;
+    margin-right:  -4px;
+    border-right: dashed 2px black;
+    border-bottom: dashed 2px black;
+    width: 28%;
+    height: 170px;
+    font-size: 96px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: top;
+}
+
+#card3, #card6 {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin-top: -1px;
+    margin-right:  -4px;
+    border-bottom: dashed 2px black;
+    width: 28%;
+    height: 170px;
+    font-size: 96px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: top;
+}
+
+#card7, #card8 {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin-top: -1px;
+    margin-right:  -4px;
+    border-right: dashed 2px black;
+    width: 28%;
+    height: 170px;
+    font-size: 96px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: top;
+}
+
+#card9 {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin-top: -1px;
+    margin-right:  -4px;
+    width: 28%;
+    height: 170px;
+    font-size: 96px;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: top;
+}
+
